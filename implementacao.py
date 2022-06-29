@@ -7,20 +7,33 @@ stanza.download("en") # download English model
 nlp = stanza.Pipeline("en") # initialize English neural pipeline
 
 sentences = """
-    WASHINGTON — Stellar pitching kept the Mets afloat in the first half of last season despite their offensive woes. But they cannot produce an encore of their pennant-winning season if their lineup keeps floundering while their pitching is nicked, bruised and stretched thin.
-    “We were going to ride our pitching,” Manager Terry Collins said before Wednesday’s game. “But we’re not riding it right now. We’ve got as many problems with our pitching as we do anything.”
-    Wednesday’s 4-2 loss to the Washington Nationals was cruel for the already-limping Mets. Pitching in Steven Matz’s place, the spot starter Logan Verrett allowed two runs over five innings. But even that was too large a deficit for the Mets’ lineup to overcome against Max Scherzer, the Nationals’ starter.
-    “We’re not even giving ourselves chances,” Collins said, adding later, “We just can’t give our pitchers any room to work.”
+    {"sentText": "But that spasm of irritation by a master intimidator was minor compared with what Bobby Fischer , the erratic former world chess champion , dished out in March at a news conference in Reykjavik , Iceland .", 
+    "articleId": "/m/vinci8/data1/riedel/projects/relation/kb/nyt1/docstore/nyt-2005-2006.backup/1677367.xml.pb", 
+    "relationMentions": [
+        {"em1Text": "Bobby Fischer", "em2Text": "Iceland", "label": "/people/person/nationality"}, 
+        {"em1Text": "Iceland", "em2Text": "Reykjavik", "label": "/location/country/capital"}, 
+        {"em1Text": "Iceland", "em2Text": "Reykjavik", "label": "/location/location/contains"}, 
+        {"em1Text": "Bobby Fischer", "em2Text": "Reykjavik", "label": "/people/deceased_person/place_of_death"}
+    ], 
+    "entityMentions": [
+        {"start": 0, "label": "PERSON", "text": "Bobby Fischer"}, 
+        {"start": 1, "label": "LOCATION", "text": "Reykjavik"}, 
+        {"start": 2, "label": "LOCATION", "text": "Iceland"}], 
+        "sentId": "1"}
+    {"sentText": "But Schaap seems as comfortable in that role as Joe Buck , the Fox baseball and football sportscaster who so clearly benefited from learning beside his father , Jack Buck , the late voice of the St. Louis Cardinals . ''", 
+    "articleId": "/m/vinci8/data1/riedel/projects/relation/kb/nyt1/docstore/nyt-2005-2006.backup/1677367.xml.pb", 
+    "relationMentions": [
+        {"em1Text": "Jack Buck", "em2Text": "Joe Buck", "label": "/people/person/children"}
+        ], 
+        "entityMentions": [
+            {"start": 1, "label": "PERSON", "text": "Joe Buck"}, 
+            {"start": 2, "label": "PERSON", "text": "Fox"}, 
+            {"start": 3, "label": "PERSON", "text": "Jack Buck"}, 
+            {"start": 4, "label": "ORGANIZATION", "text": "St. Louis Cardinals"}
+        ], 
+        "sentId": "2"}
+
     """
-
-# verbos: kept, 
-
-# Read dataset New York Times articles
-# with open("nytimes_news_articles.txt", "r") as f:
-#     data = f.read()
-
-# print(data)
-# print(type(data))
 
 doc = nlp(sentences)
 
