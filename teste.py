@@ -1,2 +1,2 @@
-print('afdvaaaoo')
+print(f'afdvoo')
 ## testec    
